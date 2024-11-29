@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olachhab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 00:44:56 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/29 00:55:55 by olachhab         ###   ########.fr       */
+/*   Created: 2024/11/29 00:44:43 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/29 00:56:14 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
 # endif
 
 /*-------------Includes----------------*/

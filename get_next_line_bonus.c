@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olachhab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 00:44:53 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/29 00:51:34 by olachhab         ###   ########.fr       */
+/*   Created: 2024/11/29 00:44:40 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/29 00:52:47 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static void	*concat_buffers_with_strjoin(char *position, char *buff)
 {
@@ -105,17 +105,15 @@ static char	*clean_position(char *position)
 
 char	*get_next_line(int fd)
 {
-	static char	*position;
+	static char	*positions[MAX_FD];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX_FD)
 		return (NULL);
-	}
-	position = read_line(fd, position);
-	if (!position)
+	positions[fd] = read_line(fd, positions[fd]);
+	if (!positions[fd])
 		return (NULL);
-	line = extract_line(position);
-	position = clean_position(position);
+	line = extract_line(positions[fd]);
+	positions[fd] = clean_position(positions[fd]);
 	return (line);
 }
